@@ -2,11 +2,13 @@
 # start up any particular service, just installs the platform. Other images
 # inherit from this image to start up a particular service.
 
-FROM debian:8.2
+FROM  ubuntu:15.10
 
-ENV SCALA_VERSION="2.10.4"
+ENV DEBIAN_FRONTEND noninteractive
+
+ENV SCALA_VERSION="2.11.7"
 ENV JAVA_VERSION="7"
-ENV CONFLUENT_MAJOR_VERSION="1.0"
+ENV CONFLUENT_MAJOR_VERSION="2.0"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
