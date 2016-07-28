@@ -8,4 +8,5 @@ docker build -t docker.jangl.com/kafka kafka/
 docker build -t docker.jangl.com/schema-registry schema-registry/
 docker build -t docker.jangl.com/rest-proxy rest-proxy/
 docker build -t docker.jangl.com/confluent-tools tools/
-
+docker build -t docker.jangl.com/kafka-connect kafka-connect/
+docker build -t docker.jangl.com/confluent-control-center confluent-control-center/
