@@ -1,15 +1,6 @@
-FROM docker.jangl.com/confluent-platform
+FROM confluentinc/cp-kafka-connect-base:3.2.0
 
-COPY kafka-connect-docker.sh /usr/local/bin/
-COPY kafka-connect-jdbc-3.1.0-SNAPSHOT.jar /usr/local/connect/
-
-RUN ["chown", "-R", "confluent:confluent", "/etc/kafka/connect-distributed.properties", "/usr/local/bin/kafka-connect-docker.sh", "/usr/local/connect/kafka-connect-jdbc-3.1.0-SNAPSHOT.jar"]
-RUN ["chmod", "+x", "/usr/local/bin/kafka-connect-docker.sh"]
-
-EXPOSE 8083
-
-WORKDIR /etc/kafka
-ENV CLASSPATH /usr/local/connect/*
-
-USER confluent
-ENTRYPOINT ["/usr/local/bin/kafka-connect-docker.sh"]
+COPY kafka-connect-jdbc-3.3.0-SNAPSHOT.jar \
+     postgresql-9.4-1206-jdbc41.jar \
+     sqlite-jdbc-3.8.11.2.jar \
+     /usr/share/java/kafka-connect-jdbc/
